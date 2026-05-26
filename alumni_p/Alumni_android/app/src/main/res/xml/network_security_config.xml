@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Configuracion de seguridad de red de la app (RNF-7).
+    Confiamos en el certificado autofirmado del backend Tomcat SOLO para
+    la IP 10.0.2.2 (alias del emulador para el localhost del PC).
+    El certificado se incluye en res/raw/alumni_cert.crt.
+-->
+<network-security-config>
+    <domain-config>
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <trust-anchors>
+            <certificates src="@raw/alumni_cert" />
+            <!-- Tambien se confia en las CAs estandar del sistema -->
+            <certificates src="system" />
+        </trust-anchors>
+    </domain-config>
+</network-security-config>

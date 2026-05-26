@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Pantalla de Login (LoginActivity).
+  Formulario con usuario, contrasena y boton "Iniciar sesion".
+  Debajo, cuatro botones de acceso rapido para los usuarios de prueba.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/login_titulo"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/login_subtitulo"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login_usuario"
+            android:autofillHints="username"
+            android:inputType="text"
+            android:text="mgarcia" />
+
+        <EditText
+            android:id="@+id/etContrasenia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/login_contrasenia"
+            android:autofillHints="password"
+            android:inputType="textPassword"
+            android:text="Loyola2026!" />
+
+        <Button
+            android:id="@+id/btnEntrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/login_entrar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/login_demo_titulo"
+            android:textStyle="italic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:id="@+id/btnDemoAlumni"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/login_demo_alumni"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btnDemoPdi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/login_demo_pdi"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btnDemoPtgas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/login_demo_ptgas"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <Button
+                android:id="@+id/btnDemoAdmin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/login_demo_admin"
+                style="?android:attr/borderlessButtonStyle" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,84 @@
+===============================================================================
+ CONFIGURACION DE CONECTORES TOMCAT  -  HTTPS / TLS 1.3  (RNF-7)
+ Proyecto Desarrollo Alumni
+===============================================================================
+
+RNF-7 exige que TODA la comunicacion entre el cliente y el backend Tomcat viaje
+cifrada con TLS 1.3 (HTTPS), rechazando las conexiones no seguras del puerto 80.
+
+Edita el fichero  <CARPETA_TOMCAT>\conf\server.xml  y aplica estos 3 pasos.
+
+
+-------------------------------------------------------------------------------
+ PASO 1 - Conector HTTPS con TLS 1.3 (anadelo dentro de <Service>)
+-------------------------------------------------------------------------------
+
+    <!-- Conector seguro HTTPS - TLS 1.3 unicamente (RNF-7) -->
+    <Connector port="8443"
+               protocol="org.apache.coyote.http11.Http11NioProtocol"
+               maxThreads="150"
+               SSLEnabled="true"
+               scheme="https"
+               secure="true">
+        <UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol" />
+        <SSLHostConfig protocols="TLSv1.3"
+                       ciphers="TLS_AES_256_GCM_SHA384:TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256">
+            <Certificate certificateKeystoreFile="conf/alumni-keystore.p12"
+                         certificateKeystorePassword="CambiaEstaClave2026"
+                         certificateKeystoreType="PKCS12"
+                         type="RSA" />
+        </SSLHostConfig>
+    </Connector>
+
+  NOTA: 'protocols="TLSv1.3"' deja activo SOLO TLS 1.3. Si necesitas
+  compatibilidad con clientes antiguos podrias usar "TLSv1.3,TLSv1.2", pero
+  el PDS pide TLS 1.3, asi que se deja restringido.
+
+
+-------------------------------------------------------------------------------
+ PASO 2 - El conector HTTP (8080) solo debe REDIRIGIR a HTTPS
+-------------------------------------------------------------------------------
+
+  Localiza el conector HTTP existente y deja unicamente la redireccion:
+
+    <Connector port="8080"
+               protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+
+  Gracias a la <security-constraint> con transport-guarantee CONFIDENTIAL
+  definida en WEB-INF/web.xml, cualquier peticion que llegue por 8080 se
+  redirige automaticamente (HTTP 302) al puerto 8443. El contenido NUNCA se
+  sirve sin cifrar.
+
+
+-------------------------------------------------------------------------------
+ PASO 3 (opcional, cumplimiento estricto) - RECHAZAR el puerto no seguro
+-------------------------------------------------------------------------------
+
+  El PDS habla de "rechazar conexiones no seguras en el puerto 80". Si quieres
+  el comportamiento estricto (no redirigir, sino rechazar), comenta por
+  completo el conector HTTP:
+
+    <!--
+    <Connector port="8080" protocol="HTTP/1.1" .../>
+    -->
+
+  Con el conector HTTP deshabilitado, el puerto queda cerrado y solo se
+  atienden conexiones TLS en 8443. La opcion del PASO 2 (redireccion) suele
+  ser preferible por usabilidad; la del PASO 3 es la interpretacion literal.
+
+
+-------------------------------------------------------------------------------
+ COMPROBACION
+-------------------------------------------------------------------------------
+
+  1. Copia 'alumni-keystore.p12' a  <CARPETA_TOMCAT>\conf\
+  2. Reinicia Tomcat.
+  3. Abre  https://localhost:8443/alumni/
+     (el navegador avisara del certificado autofirmado: es normal en local).
+  4. Comprueba que  http://localhost:8080/alumni/  redirige a https://...
+  5. Verifica TLS 1.3 en el candado del navegador -> "Conexion segura" ->
+     debe indicar "TLS 1.3".
+
+===============================================================================

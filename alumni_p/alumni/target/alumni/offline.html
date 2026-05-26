@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sin conexion - Loyola Alumni</title>
+  <meta name="theme-color" content="#0a3d62">
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f4f6f8;
+      color: #1a1a1a;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .tarjeta {
+      background: #ffffff;
+      border: 1px solid #c9d2da;
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      max-width: 420px;
+    }
+    h1 { color: #0a3d62; font-size: 1.5rem; margin: 0.5rem 0; }
+    p { line-height: 1.6; color: #33414d; }
+    button {
+      background: #0a3d62;
+      color: #ffffff;
+      border: 0;
+      border-radius: 8px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      min-height: 44px;
+    }
+    button:focus-visible { outline: 3px solid #d4af37; outline-offset: 2px; }
+    .icono { font-size: 3rem; }
+  </style>
+</head>
+<body>
+  <main class="tarjeta">
+    <div class="icono" aria-hidden="true">&#128246;</div>
+    <h1>Sin conexion</h1>
+    <p>No hay conexion a internet en este momento. Loyola Alumni necesita conexion
+       para mostrar los datos mas recientes.</p>
+    <p>Comprueba tu red e intentalo de nuevo.</p>
+    <button type="button" onclick="location.reload()">Reintentar</button>
+  </main>
+</body>
+</html>

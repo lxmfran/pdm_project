@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+  <display-name>Alumni Loyola</display-name>
+
+  <!-- Configuracion de sesion: 30 minutos, cookie segura y solo HTTP(S) -->
+  <session-config>
+    <session-timeout>30</session-timeout>
+    <cookie-config>
+      <http-only>true</http-only>
+      <secure>true</secure>
+    </cookie-config>
+    <tracking-mode>COOKIE</tracking-mode>
+  </session-config>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- ===========================================================================
+       RNF-7: toda la comunicacion debe viajar cifrada (HTTPS/TLS 1.3).
+       Esta restriccion obliga a Tomcat a redirigir cualquier peticion HTTP
+       al conector seguro (redirectPort). Combinada con la configuracion del
+       conector en server.xml (ver INSTRUCCIONES_DESPLIEGUE.md), garantiza
+       que no se sirva contenido por canal no cifrado.
+       =========================================================================== -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Aplicacion Alumni completa</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+
+</web-app>

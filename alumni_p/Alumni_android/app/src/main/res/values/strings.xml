@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Alumni</string>
+
+    <string name="login_titulo">Loyola Alumni</string>
+    <string name="login_subtitulo">Red de antiguos alumnos</string>
+    <string name="login_usuario">Usuario</string>
+    <string name="login_contrasenia">Contrasena</string>
+    <string name="login_entrar">Iniciar sesion</string>
+    <string name="login_demo_titulo">Accesos de prueba (Loyola2026!)</string>
+    <string name="login_demo_alumni">Alumni</string>
+    <string name="login_demo_pdi">PDI</string>
+    <string name="login_demo_ptgas">PTGAS</string>
+    <string name="login_demo_admin">Admin</string>
+    <string name="login_credenciales_obligatorias">Indica usuario y contrasena</string>
+    <string name="login_error_conexion">Fallo de conexion: %1$s</string>
+
+    <string name="home_bienvenido">Hola, %1$s</string>
+    <string name="home_rol">Rol: %1$s</string>
+    <string name="home_cerrar_sesion">Cerrar sesion</string>
+</resources>
