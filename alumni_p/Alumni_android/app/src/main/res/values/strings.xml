@@ -17,4 +17,28 @@
     <string name="home_bienvenido">Hola, %1$s</string>
     <string name="home_rol">Rol: %1$s</string>
     <string name="home_cerrar_sesion">Cerrar sesion</string>
+
+    <string name="menu_directorio">Directorio de alumni</string>
+    <string name="menu_mi_perfil">Mi perfil</string>
+    <string name="menu_eventos">Eventos</string>
+    <string name="menu_actividades">Actividades</string>
+    <string name="menu_mis_inscripciones">Mis inscripciones</string>
+    <string name="menu_proponer_evento">Proponer evento</string>
+    <string name="menu_propuestas">Propuestas pendientes</string>
+    <string name="menu_admin_panel">Panel administrador</string>
+
+    <string name="buscar_hint">Buscar alumni…</string>
+    <string name="filtros_avanzados">Filtros avanzados</string>
+    <string name="filtros_limpiar">Limpiar</string>
+    <string name="filtros_aplicar">Aplicar</string>
+    <string name="sin_resultados">Sin resultados</string>
+
+    <string name="guardar_cambios">Guardar cambios</string>
+    <string name="inscribirse">Inscribirse</string>
+    <string name="cancelar_inscripcion">Cancelar inscripcion</string>
+    <string name="publicar_evento">Publicar evento</string>
+    <string name="enviar_propuesta">Enviar propuesta</string>
+    <string name="aprobar">Aprobar</string>
+    <string name="rechazar">Rechazar</string>
+    <string name="publicar">Publicar</string>
 </resources>

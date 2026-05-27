@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvAyuda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="12dp" />
+
+        <RadioGroup
+            android:id="@+id/rgTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton android:id="@+id/rbEvento" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Evento" android:checked="true" />
+            <RadioButton android:id="@+id/rbActividad" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Actividad" android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <EditText android:id="@+id/etNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre" />
+        <EditText android:id="@+id/etDescripcion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Descripcion" android:inputType="textMultiLine" android:minLines="2" />
+        <EditText android:id="@+id/etLugar" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Lugar / ubicacion" />
+        <EditText android:id="@+id/etPonente" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ponente (opcional)" />
+        <EditText android:id="@+id/etFecha" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fecha del evento (AAAA-MM-DD)" />
+        <EditText android:id="@+id/etLimite" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fecha limite inscripcion (AAAA-MM-DD)" />
+        <EditText android:id="@+id/etCapacidad" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Capacidad maxima" android:inputType="number" />
+
+        <Button android:id="@+id/btnEnviar" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="@string/enviar_propuesta" />
+
+        <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

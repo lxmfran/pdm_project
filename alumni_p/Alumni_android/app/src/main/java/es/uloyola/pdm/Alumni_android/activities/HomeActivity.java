@@ -2,6 +2,7 @@ package es.uloyola.pdm.Alumni_android.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,19 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * HomeActivity
- * ------------
- * Pantalla provisional tras el login.
- *
- * Muestra el nombre y rol del usuario autenticado leyendolo de
- * SessionManager (no hace falta volver a llamar al backend para esto).
- * Permite cerrar sesion: invoca POST /LogoutServlet, limpia la cookie de
- * sesion y vuelve al login.
- *
- * En fases posteriores aqui ira la navegacion principal (directorio,
- * perfil, eventos, actividades, etc.).
- */
+/** Pantalla principal post-login con menu de navegacion. Adapta botones segun el rol. */
 public class HomeActivity extends AppCompatActivity {
 
     @Override
@@ -38,41 +27,65 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        TextView tvBienvenida   = findViewById(R.id.tvBienvenida);
-        TextView tvRol          = findViewById(R.id.tvRol);
-        TextView tvEmail        = findViewById(R.id.tvEmail);
-        Button   btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
-
-        // Si por algun motivo se llega aqui sin sesion, volver al login
         Usuario u = SessionManager.get().getUsuario();
         if (u == null) {
             volverAlLogin();
             return;
         }
+        String rol = SessionManager.get().getRol();
 
-        tvBienvenida.setText(getString(R.string.home_bienvenido, u.getNombreCompleto()));
-        tvRol.setText(getString(R.string.home_rol, SessionManager.get().getRol()));
-        tvEmail.setText(u.getEmail() != null ? u.getEmail() : "");
+        ((TextView) findViewById(R.id.tvBienvenida))
+                .setText(getString(R.string.home_bienvenido, u.getNombreCompleto()));
+        ((TextView) findViewById(R.id.tvRol)).setText(getString(R.string.home_rol, rol));
+        ((TextView) findViewById(R.id.tvEmail)).setText(u.getEmail() != null ? u.getEmail() : "");
 
-        btnCerrarSesion.setOnClickListener(v -> cerrarSesion());
+        // Botones disponibles para todos los roles autenticados
+        findViewById(R.id.btnDirectorio).setOnClickListener(v -> abrir(DirectorioActivity.class));
+        findViewById(R.id.btnMiPerfil).setOnClickListener(v -> abrir(MiPerfilActivity.class));
+        findViewById(R.id.btnEventos).setOnClickListener(v -> abrir(EventosActivity.class));
+        findViewById(R.id.btnActividades).setOnClickListener(v -> abrir(ActividadesActivity.class));
+
+        Button btnInscripciones = findViewById(R.id.btnMisInscripciones);
+        Button btnProponer = findViewById(R.id.btnProponer);
+        Button btnPropuestas = findViewById(R.id.btnPropuestas);
+        Button btnAdmin = findViewById(R.id.btnAdminPanel);
+
+        // Alumni y PDI: inscripciones + proponer
+        if ("ALUMNI".equalsIgnoreCase(rol) || "PDI".equalsIgnoreCase(rol)) {
+            btnInscripciones.setOnClickListener(v -> abrir(MisInscripcionesActivity.class));
+            btnProponer.setOnClickListener(v -> abrir(CrearEventoActivity.class));
+        } else {
+            btnInscripciones.setVisibility(View.GONE);
+            btnProponer.setText(R.string.publicar_evento);
+            btnProponer.setOnClickListener(v -> abrir(CrearEventoActivity.class));
+        }
+
+        // PTGAS / ADMIN: ven propuestas y (admin) panel
+        if ("PTGAS".equalsIgnoreCase(rol) || "ADMIN".equalsIgnoreCase(rol)) {
+            btnPropuestas.setVisibility(View.VISIBLE);
+            btnPropuestas.setOnClickListener(v -> abrir(PropuestasActivity.class));
+        }
+        if ("ADMIN".equalsIgnoreCase(rol)) {
+            btnAdmin.setVisibility(View.VISIBLE);
+            btnAdmin.setOnClickListener(v -> abrir(AdminPanelActivity.class));
+        }
+
+        findViewById(R.id.btnCerrarSesion).setOnClickListener(v -> cerrarSesion());
     }
 
-    /** Invoca al backend para invalidar la sesion y limpia el estado local. */
+    private void abrir(Class<?> activity) {
+        startActivity(new Intent(this, activity));
+    }
+
     private void cerrarSesion() {
         PvoService api = RetrofitClient.getService();
         api.logout().enqueue(new Callback<GenericResponse>() {
-            @Override
-            public void onResponse(Call<GenericResponse> call, Response<GenericResponse> response) {
-                // Tanto si responde bien como si no, limpiamos el estado local
+            @Override public void onResponse(Call<GenericResponse> c, Response<GenericResponse> r) {
                 SessionManager.get().cerrarSesion();
                 volverAlLogin();
             }
-
-            @Override
-            public void onFailure(Call<GenericResponse> call, Throwable t) {
-                Toast.makeText(HomeActivity.this,
-                        "No se pudo contactar con el servidor, sesion cerrada localmente.",
-                        Toast.LENGTH_SHORT).show();
+            @Override public void onFailure(Call<GenericResponse> c, Throwable t) {
+                Toast.makeText(HomeActivity.this, "Cerrada localmente.", Toast.LENGTH_SHORT).show();
                 SessionManager.get().cerrarSesion();
                 volverAlLogin();
             }

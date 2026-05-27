@@ -27,9 +27,19 @@
         </activity>
 
         <!-- Pantalla principal tras iniciar sesion -->
-        <activity
-            android:name=".activities.HomeActivity"
-            android:exported="false" />
+        <activity android:name=".activities.HomeActivity" android:exported="false" />
+
+        <!-- Resto de pantallas de la app -->
+        <activity android:name=".activities.DirectorioActivity" android:exported="false" />
+        <activity android:name=".activities.PerfilAlumniActivity" android:exported="false" />
+        <activity android:name=".activities.MiPerfilActivity" android:exported="false" />
+        <activity android:name=".activities.EventosActivity" android:exported="false" />
+        <activity android:name=".activities.ActividadesActivity" android:exported="false" />
+        <activity android:name=".activities.DetalleEventoActivity" android:exported="false" />
+        <activity android:name=".activities.MisInscripcionesActivity" android:exported="false" />
+        <activity android:name=".activities.CrearEventoActivity" android:exported="false" />
+        <activity android:name=".activities.PropuestasActivity" android:exported="false" />
+        <activity android:name=".activities.AdminPanelActivity" android:exported="false" />
     </application>
 
 </manifest>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText android:id="@+id/etNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre" />
+        <EditText android:id="@+id/etApellidos" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Apellidos" />
+        <EditText android:id="@+id/etEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email" android:inputType="textEmailAddress" />
+        <EditText android:id="@+id/etTelefono" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Telefono" android:inputType="phone" />
+        <EditText android:id="@+id/etCiudad" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ciudad" />
+        <EditText android:id="@+id/etTitulacion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Titulacion" />
+        <EditText android:id="@+id/etPromocion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Promocion (anio)" android:inputType="number" />
+        <EditText android:id="@+id/etTrabajo" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Trabajo actual" />
+        <EditText android:id="@+id/etHobbies" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Hobbies (coma)" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Privacidad" android:textStyle="bold" />
+
+        <CheckBox android:id="@+id/cbMostrarContacto" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mostrar contacto" />
+        <CheckBox android:id="@+id/cbMostrarEmail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mostrar email" />
+        <CheckBox android:id="@+id/cbMostrarTelefono" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mostrar telefono" />
+        <CheckBox android:id="@+id/cbMostrarCiudad" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mostrar ciudad" />
+        <CheckBox android:id="@+id/cbMostrarTrabajo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mostrar trabajo" />
+        <CheckBox android:id="@+id/cbMostrarHobbies" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mostrar hobbies" />
+
+        <Button android:id="@+id/btnGuardar" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="@string/guardar_cambios" />
+
+        <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>
