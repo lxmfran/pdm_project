@@ -13,6 +13,17 @@ package es.uloyola.pdm.Alumni_android.classes;
  */
 public class Usuario {
 
+    /**
+     * Datos de alumni anidados (campo "perfilAlumni" del backend).
+     * Para usuarios no-alumni queda a null.
+     * Tipo Object para evitar dependencia circular y porque el admin solo
+     * lo lee como bag de propiedades al editar.
+     */
+    private es.uloyola.pdm.Alumni_android.model.AlumniResumen perfilAlumni;
+
+    public es.uloyola.pdm.Alumni_android.model.AlumniResumen getPerfilAlumni() { return perfilAlumni; }
+    public void setPerfilAlumni(es.uloyola.pdm.Alumni_android.model.AlumniResumen v) { this.perfilAlumni = v; }
+
     private Integer id;
     private String  usuario;     // login
     private String  rol;         // ALUMNI / PDI / PTGAS / ADMIN

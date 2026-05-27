@@ -39,7 +39,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:paddingHorizontal="16dp"
             android:text="@string/cancelar_inscripcion"
-            style="?android:attr/borderlessButtonStyle" />
+            android:textColor="@color/white"
+            android:background="@drawable/bg_danger_button" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

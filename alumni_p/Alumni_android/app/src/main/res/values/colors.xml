@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta corporativa Universidad Loyola -->
+    <color name="azul_oscuro_ul">#FF00205B</color>
+    <color name="azul_claro_ul">#FF6AD1E3</color>
+    <color name="naranja_ul">#FFFFB25B</color>
+    <color name="amarillo_ul">#FFFFCD00</color>
+    <color name="verde_ul">#FF71CC98</color>
+    <color name="rojo_ul">#FFF9423A</color>
 </resources>

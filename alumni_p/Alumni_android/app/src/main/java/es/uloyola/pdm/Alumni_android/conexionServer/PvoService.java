@@ -17,6 +17,8 @@ import es.uloyola.pdm.Alumni_android.model.LoginRequest;
 import es.uloyola.pdm.Alumni_android.model.LoginResponse;
 import es.uloyola.pdm.Alumni_android.model.PerfilResponse;
 import es.uloyola.pdm.Alumni_android.model.PropuestasResponse;
+import es.uloyola.pdm.Alumni_android.model.UsuarioAdminResponse;
+import es.uloyola.pdm.Alumni_android.model.UsuariosListResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -94,4 +96,17 @@ public interface PvoService {
     // ===== Panel admin =====
     @GET("DashboardServlet")
     Call<DashboardResponse> dashboard();
+
+    // ===== Gestion de usuarios (solo ADMIN) =====
+    @GET("UsuarioAdminServlet")
+    Call<UsuariosListResponse> listarUsuarios();
+
+    @POST("UsuarioAdminServlet")
+    Call<UsuarioAdminResponse> crearUsuarioAdmin(@Body Map<String, Object> datos);
+
+    @PUT("UsuarioAdminServlet")
+    Call<UsuarioAdminResponse> modificarUsuarioAdmin(@Body Map<String, Object> datos);
+
+    @HTTP(method = "DELETE", path = "UsuarioAdminServlet", hasBody = true)
+    Call<GenericResponse> eliminarUsuarioAdmin(@Body Map<String, Object> datos);
 }

@@ -23,7 +23,8 @@
     <string name="menu_eventos">Eventos</string>
     <string name="menu_actividades">Actividades</string>
     <string name="menu_mis_inscripciones">Mis inscripciones</string>
-    <string name="menu_proponer_evento">Proponer evento</string>
+    <string name="menu_proponer_evento">Proponer iniciativa</string>
+    <string name="menu_proponer_iniciativa">Proponer iniciativa</string>
     <string name="menu_propuestas">Propuestas pendientes</string>
     <string name="menu_admin_panel">Panel administrador</string>
 
@@ -36,8 +37,20 @@
     <string name="guardar_cambios">Guardar cambios</string>
     <string name="inscribirse">Inscribirse</string>
     <string name="cancelar_inscripcion">Cancelar inscripcion</string>
-    <string name="publicar_evento">Publicar evento</string>
+    <string name="publicar_evento">Publicar iniciativa</string>
     <string name="enviar_propuesta">Enviar propuesta</string>
+    <string name="contactar">Contactar</string>
+
+    <!-- Admin: gestion de usuarios -->
+    <string name="admin_titulo">Gestion de usuarios</string>
+    <string name="admin_subtitulo">Crea, modifica y elimina cuentas de la comunidad Alumni.</string>
+    <string name="admin_actualizar">Actualizar</string>
+    <string name="admin_crear_usuario">Crear usuario</string>
+    <string name="admin_editar_usuario">Editar usuario</string>
+    <string name="admin_guardar_usuario">Guardar usuario</string>
+    <string name="admin_limpiar">Limpiar</string>
+    <string name="admin_editar">Editar</string>
+    <string name="admin_eliminar">Eliminar</string>
     <string name="aprobar">Aprobar</string>
     <string name="rechazar">Rechazar</string>
     <string name="publicar">Publicar</string>

@@ -3,7 +3,10 @@ package es.uloyola.pdm.Alumni_android.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import es.uloyola.pdm.Alumni_android.util.AvatarUtil;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,9 +52,11 @@ public class AlumniAdapter extends RecyclerView.Adapter<AlumniAdapter.VH> {
     public int getItemCount() { return data.size(); }
 
     class VH extends RecyclerView.ViewHolder {
+        ImageView avatar;
         TextView nombre, desc, trabajo;
         VH(View itemView) {
             super(itemView);
+            avatar = itemView.findViewById(R.id.ivAvatar);
             nombre = itemView.findViewById(R.id.tvNombre);
             desc = itemView.findViewById(R.id.tvDescripcion);
             trabajo = itemView.findViewById(R.id.tvTrabajo);
@@ -61,6 +66,7 @@ public class AlumniAdapter extends RecyclerView.Adapter<AlumniAdapter.VH> {
             });
         }
         void bind(AlumniResumen a) {
+            AvatarUtil.pintarEn(avatar, a.getNombreCompleto(), 48);
             nombre.setText(a.getNombreCompleto());
             desc.setText(a.getDescripcionCorta());
             String t = a.getTrabajoActual();

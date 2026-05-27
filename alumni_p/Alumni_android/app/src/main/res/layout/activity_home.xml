@@ -11,12 +11,22 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/logo_loyola"
+            android:adjustViewBounds="true"
+            android:contentDescription="Logo Universidad Loyola" />
+
         <TextView
             android:id="@+id/tvBienvenida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/azul_oscuro_ul" />
 
         <TextView
             android:id="@+id/tvRol"
@@ -41,69 +51,22 @@
             android:layout_marginBottom="20dp"
             android:background="#DDDDDD" />
 
-        <Button
-            android:id="@+id/btnDirectorio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_directorio" />
-
-        <Button
-            android:id="@+id/btnMiPerfil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/menu_mi_perfil" />
-
-        <Button
-            android:id="@+id/btnEventos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/menu_eventos" />
-
-        <Button
-            android:id="@+id/btnActividades"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/menu_actividades" />
-
-        <Button
-            android:id="@+id/btnMisInscripciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/menu_mis_inscripciones" />
-
-        <Button
-            android:id="@+id/btnProponer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/menu_proponer_evento" />
-
-        <Button
-            android:id="@+id/btnPropuestas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/menu_propuestas"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/btnAdminPanel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/menu_admin_panel"
-            android:visibility="gone" />
+        <Button android:id="@+id/btnDirectorio" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/menu_directorio" />
+        <Button android:id="@+id/btnMiPerfil" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/menu_mi_perfil" />
+        <Button android:id="@+id/btnEventos" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/menu_eventos" />
+        <Button android:id="@+id/btnActividades" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/menu_actividades" />
+        <Button android:id="@+id/btnMisInscripciones" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/menu_mis_inscripciones" />
+        <Button android:id="@+id/btnProponer" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/menu_proponer_iniciativa" />
+        <Button android:id="@+id/btnPropuestas" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/menu_propuestas" android:visibility="gone" />
+        <Button android:id="@+id/btnAdminPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/menu_admin_panel" android:visibility="gone" />
 
         <Button
             android:id="@+id/btnCerrarSesion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
             android:text="@string/home_cerrar_sesion"
+            android:textColor="@color/azul_oscuro_ul"
             style="?android:attr/borderlessButtonStyle" />
     </LinearLayout>
 </ScrollView>

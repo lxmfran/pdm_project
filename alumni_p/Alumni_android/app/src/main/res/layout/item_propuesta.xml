@@ -18,10 +18,36 @@
         <TextView android:id="@+id/tvEstado" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#1976D2" />
         <TextView android:id="@+id/tvDescripcion" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:layout_marginTop="4dp" />
 
-        <LinearLayout android:id="@+id/btnsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
-            <Button android:id="@+id/btnAprobar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/aprobar" style="?android:attr/borderlessButtonStyle" />
-            <Button android:id="@+id/btnRechazar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/rechazar" style="?android:attr/borderlessButtonStyle" />
-            <Button android:id="@+id/btnPublicar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/publicar" style="?android:attr/borderlessButtonStyle" />
+        <LinearLayout android:id="@+id/btnsRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+            <Button
+                android:id="@+id/btnAprobar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="@string/aprobar"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_demo_button" />
+
+            <Button
+                android:id="@+id/btnRechazar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="3dp"
+                android:text="@string/rechazar"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_danger_button" />
+
+            <Button
+                android:id="@+id/btnPublicar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="@string/publicar"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_demo_button" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -1,34 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Panel del administrador: metricas + gestion de usuarios (CRUD). -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:background="#F2F5F9">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- ===== Cabecera ===== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADMINISTRACION"
+                    android:textColor="@color/azul_claro_ul"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/admin_titulo"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/azul_oscuro_ul" />
+
+                    <Button
+                        android:id="@+id/btnActualizar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="16dp"
+                        android:text="@string/admin_actualizar"
+                        android:textColor="@color/white"
+                        android:background="@drawable/bg_demo_button" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/admin_subtitulo"
+                    android:textSize="12sp"
+                    android:textColor="#5B6B7E" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== Metricas ===== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="METRICAS DEL SISTEMA"
+                    android:textColor="@color/azul_claro_ul"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:id="@+id/tvMetricas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="monospace"
+                    android:textSize="13sp"
+                    android:textColor="#1F2933" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== Formulario Crear / Editar ===== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvFormTitulo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/admin_crear_usuario"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/azul_oscuro_ul" />
+
+                    <Button
+                        android:id="@+id/btnLimpiar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:textSize="12sp"
+                        android:text="@string/admin_limpiar"
+                        android:textColor="@color/azul_oscuro_ul"
+                        style="?android:attr/borderlessButtonStyle" />
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Rol" android:textSize="12sp" android:textColor="#5B6B7E" />
+                <Spinner android:id="@+id/spRol" android:layout_width="match_parent" android:layout_height="48dp" />
+
+                <EditText android:id="@+id/etUsuario" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Usuario (login)" android:inputType="text" />
+                <EditText android:id="@+id/etDni" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="DNI" android:inputType="text" />
+                <EditText android:id="@+id/etContrasenia" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Contrasena (deja vacio para conservar)" android:inputType="textPassword" />
+                <EditText android:id="@+id/etNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre" android:inputType="textCapWords" />
+                <EditText android:id="@+id/etApellidos" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Apellidos" android:inputType="textCapWords" />
+                <EditText android:id="@+id/etEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email" android:inputType="textEmailAddress" />
+                <EditText android:id="@+id/etTelefono" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Telefono" android:inputType="phone" />
+                <EditText android:id="@+id/etTitulacion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Titulacion" android:inputType="text" />
+                <EditText android:id="@+id/etPromocion" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Promocion (anio)" android:inputType="number" />
+                <EditText android:id="@+id/etCiudad" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ciudad" android:inputType="text" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Campus" android:textSize="12sp" android:textColor="#5B6B7E" />
+                <Spinner android:id="@+id/spCampus" android:layout_width="match_parent" android:layout_height="48dp" />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Facultad" android:textSize="12sp" android:textColor="#5B6B7E" />
+                <Spinner android:id="@+id/spFacultad" android:layout_width="match_parent" android:layout_height="48dp" />
+
+                <EditText android:id="@+id/etTrabajo" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Trabajo / puesto" android:inputType="text" />
+                <EditText android:id="@+id/etHobbies" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Hobbies / proyectos / permisos (coma)" android:inputType="text" />
+
+                <Button
+                    android:id="@+id/btnGuardarUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/admin_guardar_usuario"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_demo_button" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== Lista de usuarios ===== -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Metricas del sistema"
+            android:text="USUARIOS DEL SISTEMA"
+            android:textColor="@color/azul_claro_ul"
+            android:textSize="11sp"
             android:textStyle="bold"
-            android:textSize="18sp"
-            android:paddingBottom="12dp" />
+            android:letterSpacing="0.15"
+            android:paddingHorizontal="4dp"
+            android:paddingBottom="8dp" />
 
-        <TextView
-            android:id="@+id/tvMetricas"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUsuarios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:textSize="13sp" />
+            android:nestedScrollingEnabled="false" />
 
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="16dp"
             android:visibility="gone" />
     </LinearLayout>
 </ScrollView>
