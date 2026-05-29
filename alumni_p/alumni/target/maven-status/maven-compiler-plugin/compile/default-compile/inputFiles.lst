@@ -15,6 +15,7 @@ c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\m
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\enums\ExperienciaHobbies.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\servlets\LoginServlet.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\servlets\DashboardServlet.java
+c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\servlets\VisibilidadServlet.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\AlumniImpl.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\PropuestaEvento.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\UsuarioImpl.java
@@ -22,6 +23,7 @@ c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\m
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\Pdi.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\servlets\LogoutServlet.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\servlets\PerfilServlet.java
+c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\jobs\JobsContextListener.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\LugarTrabajo.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\RegistroAuditoria.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\Organizador.java
@@ -35,6 +37,7 @@ c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\m
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\db\DataAccessException.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\servlets\ActividadServlet.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\Usuario.java
+c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\Notificacion.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\Credenciales.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\PropuestaEventoImpl.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\enums\Facultad.java
@@ -48,8 +51,10 @@ c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\m
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\security\SessionContext.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\OrganizadorImpl.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\security\PasswordUtil.java
+c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\dao\ManagerNotificaciones.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\TrabajoImpl.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\CredencialesImpl.java
+c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\servlets\NotificacionServlet.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\classes\Trabajo.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\servlets\EventoServlet.java
 c:\Users\LXMFRAN\Desktop\pdm_project-main\pdm_project-main\alumni_p\alumni\src\main\java\es\loyola\servlets\ActivarCuentaServlet.java
