@@ -1,4 +1,4 @@
-# Despliegue del proyecto Desarrollo Alumni
+# Despliegue del proyecto Desarrollo Alumni y guia de la estructura del proyecto
 
 ## Requisitos necesarios
 
@@ -144,3 +144,21 @@ backup/README_COPIAS_SEGURIDAD.txt
 ```
 
 Ahí también se explica cómo activar el log binario en `my.ini`, necesario para las copias incrementales.
+
+
+
+
+# GUÍA DE LA ESTRUCTURA DEL PROYECTO
+
+
+FRONTEND(ANDROID STUDIO): alumni_p/Alumni_android
+
+BACKEND (PROYECTO MAVEN CON .WAR):alumni_p/alumni
+
+BASE DE DATOS (TODO LO REFERENTE A ESTA) : DB_alumni
+
+
+
+
+
+
