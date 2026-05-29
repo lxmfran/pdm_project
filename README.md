@@ -1,4 +1,4 @@
-# POR FAVOR, LEER PARA PODER DESPLEGAR EL PROYECTO CORRECTAMENTE.
+
 
 
 # Despliegue del proyecto Desarrollo Alumni y guía de la estructura del proyecto
