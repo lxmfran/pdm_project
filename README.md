@@ -1,5 +1,28 @@
 # Despliegue del proyecto Desarrollo Alumni y guía de la estructura del proyecto
 
+
+# GUÍA DE LA ESTRUCTURA DEL PROYECTO
+
+
+FRONTEND(ANDROID STUDIO): alumni_p/Alumni_android
+
+BACKEND (PROYECTO MAVEN CON .WAR):alumni_p/alumni
+
+BASE DE DATOS (TODO LO REFERENTE A ESTA) : DB_alumni
+
+
+
+
+
+
+
+
+
+
+# DESPLIEGUE
+
+
+
 ## Requisitos necesarios
 
 Antes de empezar, hace falta tener instalado:
@@ -148,14 +171,6 @@ Ahí también se explica cómo activar el log binario en `my.ini`, necesario par
 
 
 
-# GUÍA DE LA ESTRUCTURA DEL PROYECTO
-
-
-FRONTEND(ANDROID STUDIO): alumni_p/Alumni_android
-
-BACKEND (PROYECTO MAVEN CON .WAR):alumni_p/alumni
-
-BASE DE DATOS (TODO LO REFERENTE A ESTA) : DB_alumni
 
 
 
