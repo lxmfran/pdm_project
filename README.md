@@ -11,7 +11,7 @@ FRONTEND(ANDROID STUDIO): alumni_p/Alumni_android
 
 BACKEND (PROYECTO MAVEN CON .WAR):alumni_p/alumni
 
-BASE DE DATOS (TODO LO REFERENTE A ESTA) : DB_alumni
+BASE DE DATOS (TODO LO REFERENTE A ESTA) : alumni_p/DB_alumni
 
 
 
