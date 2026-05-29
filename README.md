@@ -221,7 +221,7 @@ Se recomienda usar un emulador con:
 
 ---
 
-## 4. Inicio de sesión
+## 3. Inicio de sesión
 
 Los usuarios vienen preparados desde el script `password_reset.sql` del backend.
 
