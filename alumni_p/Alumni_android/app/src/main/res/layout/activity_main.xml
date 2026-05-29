@@ -18,9 +18,9 @@
             android:layout_width="240dp"
             android:layout_height="80dp"
             android:layout_marginTop="32dp"
-            android:src="@drawable/logo_loyola"
             android:adjustViewBounds="true"
-            android:contentDescription="Logo Universidad Loyola" />
+            android:contentDescription="Logo Universidad Loyola"
+            android:src="@drawable/logo_app" />
 
         <TextView
             android:layout_width="wrap_content"
