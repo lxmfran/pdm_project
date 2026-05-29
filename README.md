@@ -1,4 +1,4 @@
-# Despliegue del proyecto Desarrollo Alumni y guía de la estructura del proyecto
+# Despliegue del proyecto Desarrollo Alumni y guía de la estructura del proyecto , POR FAVOR LEER PARA PODER DESPLEGAR EL PROYECTO CORRECTAMENTE.
 
 
 # GUÍA DE LA ESTRUCTURA DEL PROYECTO
