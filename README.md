@@ -1,4 +1,4 @@
-# Despliegue del proyecto Desarrollo Alumni y guia de la estructura del proyecto
+# Despliegue del proyecto Desarrollo Alumni y guía de la estructura del proyecto
 
 ## Requisitos necesarios
 
