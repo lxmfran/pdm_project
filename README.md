@@ -22,9 +22,11 @@ BASE DE DATOS (TODO LO REFERENTE A ESTA) : alumni_p/DB_alumni
 
 
 
-# DESPLIEGUE
+# DESPLIEGUE FRONTEND Y BACKEND
 
 
+
+# DESPLIEGUE BACKEND (MAVEN(PARA .WAR))
 
 ## Requisitos necesarios
 
@@ -174,7 +176,7 @@ Ahí también se explica cómo activar el log binario en `my.ini`, necesario par
 
 
 
-# GUÍA FRONTEND
+# DESPLIEGUE FRONTEND (ANDROID STUDIO) 
 
 
 
