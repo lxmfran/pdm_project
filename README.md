@@ -174,7 +174,65 @@ Ahí también se explica cómo activar el log binario en `my.ini`, necesario par
 
 
 
+# GUÍA FRONTEND
 
+
+
+Para hacer esto el backend debe estar ya está desplegado correctamente en Tomcat usando HTTPS (puerto 8443) y con MySQL funcionando.
+
+---
+
+## 1. Abrir el proyecto en Android Studio
+
+Desde Android Studio:
+
+```text id="drg71f"
+File → Open
+```
+
+y seleccionar la carpeta:
+
+```text id="iqs0kc"
+alumni_p/Alumni_android
+```
+
+Hay que abrir la carpeta completa, no un archivo suelto.
+
+Después de abrirlo, esperar a que termine el proceso de *Gradle Sync*.
+
+---
+
+## 2. Ejecutar la aplicación
+
+Desde Android Studio:
+
+```text id="fy90di"
+Run → Run 'app'
+```
+
+La primera vez Gradle descargará automáticamente las dependencias necesarias, como Retrofit, OkHttp, Gson y Material Design.
+
+Se recomienda usar un emulador con:
+
+* Play Services
+* API 24 o superior
+
+---
+
+## 4. Inicio de sesión
+
+Los usuarios vienen preparados desde el script `password_reset.sql` del backend.
+
+| Usuario      | Rol    | Contraseña    |
+| ------------ | ------ | ------------- |
+| `phidalgo`   | ADMIN  | `Loyola2026!` |
+| `lmarin`     | PTGAS  | `Loyola2026!` |
+| `afernandez` | PDI    | `Loyola2026!` |
+| `mgarcia`    | ALUMNI | `Loyola2026!` |
+
+Entrando con `phidalgo` se puede probar el flujo completo de administración, incluido el envío mediante **intent implícito de SMS** al crear nuevos usuarios.
+
+---
 
 
 
