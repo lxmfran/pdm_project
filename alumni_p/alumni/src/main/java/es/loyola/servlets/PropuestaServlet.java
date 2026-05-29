@@ -5,12 +5,14 @@ import es.loyola.classes.ActividadImpl;
 import es.loyola.classes.Alumni;
 import es.loyola.classes.Evento;
 import es.loyola.classes.EventoImpl;
+import es.loyola.classes.Notificacion;
 import es.loyola.classes.Organizador;
 import es.loyola.classes.OrganizadorImpl;
 import es.loyola.classes.PropuestaEvento;
 import es.loyola.dao.ActividadManager;
 import es.loyola.dao.ManagerAuditoria;
 import es.loyola.dao.ManagerEventos;
+import es.loyola.dao.ManagerNotificaciones;
 import es.loyola.dao.ManagerPropuestas;
 import es.loyola.security.SessionContext;
 import java.io.IOException;
@@ -38,6 +40,7 @@ public class PropuestaServlet extends HttpServlet {
     private ManagerEventos eventos = new ManagerEventos();
     private ActividadManager actividades = new ActividadManager();
     private ManagerAuditoria auditoria = new ManagerAuditoria();
+    private ManagerNotificaciones notif = new ManagerNotificaciones();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -120,6 +123,10 @@ public class PropuestaServlet extends HttpServlet {
                 propuesta.setFechaDecision(new Date());
                 auditoria.registrar(solicitante, rol, "RECHAZAR_PROPUESTA", "PropuestaEvento",
                         String.valueOf(id), "OK", motivo);
+                notif.crear(propuesta.getSolicitante(), Notificacion.TIPO_PROPUESTA_RESUELTA,
+                        "Propuesta rechazada: " + propuesta.getNombre(),
+                        "Tu propuesta \"" + propuesta.getNombre() + "\" ha sido rechazada. "
+                                + "Motivo: " + motivo);
             } else if ("APROBAR".equalsIgnoreCase(decision)) {
                 propuesta.setEstado(PropuestaEvento.ESTADO_APROBADA);
                 propuesta.setMotivoDecision(motivo);
@@ -127,6 +134,10 @@ public class PropuestaServlet extends HttpServlet {
                 propuesta.setFechaDecision(new Date());
                 auditoria.registrar(solicitante, rol, "APROBAR_PROPUESTA", "PropuestaEvento",
                         String.valueOf(id), "OK", null);
+                notif.crear(propuesta.getSolicitante(), Notificacion.TIPO_PROPUESTA_RESUELTA,
+                        "Propuesta aprobada: " + propuesta.getNombre(),
+                        "Tu propuesta \"" + propuesta.getNombre() + "\" ha sido aprobada y "
+                                + "esta lista para su publicacion.");
             } else if ("PUBLICAR".equalsIgnoreCase(decision)) {
                 if (!PropuestaEvento.ESTADO_APROBADA.equalsIgnoreCase(propuesta.getEstado())
                         && !PropuestaEvento.ESTADO_PENDIENTE.equalsIgnoreCase(propuesta.getEstado())) {
@@ -147,6 +158,10 @@ public class PropuestaServlet extends HttpServlet {
                 propuesta.setRecursoPublicadoId(publicadoId);
                 auditoria.registrar(solicitante, rol, "PUBLICAR_PROPUESTA", "PropuestaEvento",
                         String.valueOf(id), "OK", "Recurso publicado=" + publicadoId);
+                notif.crear(propuesta.getSolicitante(), Notificacion.TIPO_PROPUESTA_RESUELTA,
+                        "Tu propuesta esta publicada: " + propuesta.getNombre(),
+                        "El recurso \"" + propuesta.getNombre()
+                                + "\" ha sido publicado y ya admite inscripciones.");
             } else {
                 ServletJsonUtil.writeError(response, HttpServletResponse.SC_BAD_REQUEST,
                         "Decision no soportada. Use APROBAR, RECHAZAR o PUBLICAR.");

@@ -1,6 +1,8 @@
 package es.uloyola.pdm.Alumni_android.activities;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -195,6 +197,11 @@ public class AdminPanelActivity extends AppCompatActivity implements UsuarioAdmi
 
         pb.setVisibility(View.VISIBLE);
         btnGuardar.setEnabled(false);
+        // Capturamos datos para el SMS ANTES de enviar (limpiarForm() los vacia despues).
+        // Solo se usaran si es una CREACION (no edicion) y la llamada al backend tiene exito.
+        final boolean esCreacion = (editandoUsuario == null);
+        final String telefonoNuevoUsuario = etTelefono.getText().toString().trim();
+        final String usuarioNuevoUsuario  = usuario;
         Callback<UsuarioAdminResponse> cb = new Callback<UsuarioAdminResponse>() {
             @Override public void onResponse(Call<UsuarioAdminResponse> c, Response<UsuarioAdminResponse> r) {
                 pb.setVisibility(View.GONE);
@@ -207,6 +214,10 @@ public class AdminPanelActivity extends AppCompatActivity implements UsuarioAdmi
                     Toast.makeText(AdminPanelActivity.this, msg, Toast.LENGTH_SHORT).show();
                     limpiarForm();
                     cargarUsuarios();
+                    // Intent IMPLICITO: solo cuando creamos un usuario nuevo y tenemos su telefono.
+                    if (esCreacion) {
+                        lanzarSmsAltaUsuario(telefonoNuevoUsuario, usuarioNuevoUsuario);
+                    }
                 } else {
                     String err = b != null && b.getError() != null ? b.getError() : "Error";
                     Toast.makeText(AdminPanelActivity.this, err, Toast.LENGTH_LONG).show();
@@ -225,6 +236,49 @@ public class AdminPanelActivity extends AppCompatActivity implements UsuarioAdmi
     private void meterSiHay(Map<String, Object> p, String key, EditText et) {
         String v = et.getText().toString().trim();
         if (!v.isEmpty()) p.put(key, v);
+    }
+
+    /**
+     * Intent IMPLICITO (PDM): tras dar de alta a un usuario nuevo, lanza la app
+     * de SMS predeterminada del dispositivo con el numero del destinatario y el
+     * cuerpo del mensaje ya prerrellenados, para que el administrador confirme y
+     * envie el aviso de bienvenida.
+     *
+     * Es intent IMPLICITO porque no especifica una clase destino: el sistema
+     * decide que aplicacion atiende ACTION_SENDTO con URI "smsto:".
+     * No se incluye contrasena en el mensaje (politica de seguridad).
+     * No requiere permiso SEND_SMS porque NO enviamos el SMS desde la app;
+     * delegamos en la app de mensajeria del usuario.
+     */
+    private void lanzarSmsAltaUsuario(String telefono, String usuario) {
+        if (telefono == null || telefono.isEmpty()) {
+            Toast.makeText(this,
+                    "Usuario creado, pero no se ha podido avisar por SMS: no hay telefono.",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
+        // Mensaje sin datos sensibles (no contrasena).
+        String mensaje = "Hola " + (usuario != null ? usuario : "") + ", "
+                + "tu cuenta de Loyola Alumni ha sido dada de alta. "
+                + "Ya puedes acceder a la app con tu usuario. "
+                + "Bienvenido/a a la comunidad Alumni de la Universidad Loyola Andalucia.";
+
+        Intent sms = new Intent(Intent.ACTION_SENDTO);
+        sms.setData(Uri.parse("smsto:" + telefono));
+        sms.putExtra("sms_body", mensaje);
+
+        // resolveActivity evita un crash si el dispositivo (p.ej. emulador) no
+        // tiene una app de SMS predeterminada que atienda este intent.
+        if (sms.resolveActivity(getPackageManager()) != null) {
+            startActivity(sms);
+            Toast.makeText(this,
+                    "Abriendo SMS para avisar al nuevo usuario.",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this,
+                    "Usuario creado, pero este dispositivo no tiene app de SMS para enviar el aviso.",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
