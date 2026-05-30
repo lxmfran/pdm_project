@@ -120,7 +120,11 @@ config/generar_keystore.bat
 
 Esto genera el certificado y el archivo `alumni-keystore.p12`.
 
-2. Copiar el archivo generado dentro de la carpeta `conf` de Tomcat.
+2.1 Copiar el archivo generado dentro de la carpeta `conf` de Tomcat.
+
+2.2 Copiar el archivo generado 'alumni_cert.crt' en la ruta "Alumni_android\app\src\main\res\raw\".
+
+
 
 
 3. Configurar los conectores en:
@@ -182,6 +186,9 @@ Ahí también se explica cómo activar el log binario en `my.ini`, necesario par
 
 
 Para hacer esto el backend debe estar ya está desplegado correctamente en Tomcat usando HTTPS (puerto 8443) y con MySQL funcionando.
+
+
+
 
 ---
 
