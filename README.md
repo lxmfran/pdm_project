@@ -122,6 +122,7 @@ Esto genera el certificado y el archivo `alumni-keystore.p12`.
 
 2. Copiar el archivo generado dentro de la carpeta `conf` de Tomcat.
 
+
 3. Configurar los conectores en:
 
 ```text
